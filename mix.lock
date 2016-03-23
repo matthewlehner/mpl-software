@@ -1,2 +1,11 @@
-%{"csv": {:hex, :csv, "1.3.0"},
-  "parallel_stream": {:hex, :parallel_stream, "1.0.3"}}
+%{"certifi": {:hex, :certifi, "0.4.0"},
+  "combine": {:hex, :combine, "0.7.0"},
+  "csv": {:hex, :csv, "1.3.0"},
+  "hackney": {:hex, :hackney, "1.5.7"},
+  "idna": {:hex, :idna, "1.2.0"},
+  "metrics": {:hex, :metrics, "1.0.1"},
+  "mimerl": {:hex, :mimerl, "1.0.2"},
+  "parallel_stream": {:hex, :parallel_stream, "1.0.3"},
+  "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0"},
+  "timex": {:hex, :timex, "2.1.1"},
+  "tzdata": {:hex, :tzdata, "0.1.201601"}}
