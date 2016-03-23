@@ -5,11 +5,13 @@ defmodule Mix.Tasks.CreateInvoiceCsv do
 
   def run(args) do
     {:ok, csv_path} = parse_args(args)
-    {:ok, file} = File.open "test.csv", [:write]
+    {:ok, output_file} = File.open "converted.csv", [:write]
+
     parse_csv(csv_path)
+    |> Enum.map(&TogglToXeroCSV.convert/1)
     |> add_header
     |> CSV.encode
-    |> Enum.each(&IO.write(file, &1))
+    |> Enum.each(&IO.write(output_file, &1))
   end
 
   defp parse_args([csv_path]) do
@@ -25,7 +27,6 @@ defmodule Mix.Tasks.CreateInvoiceCsv do
   defp parse_csv(csv_path) do
     File.stream!(csv_path)
     |> CSV.decode(headers: true)
-    |> Enum.map(&TogglToXeroCSV.convert/1)
   end
 
   defp add_header(csv) do
