@@ -12,6 +12,9 @@ defmodule Mix.Tasks.CreateInvoiceCsv do
     |> add_header
     |> CSV.encode
     |> Enum.each(&IO.write(output_file, &1))
+
+    Mix.shell.info("\n")
+    Mix.shell.info("CSV has been converted and output to #{Path.absname "converted.csv"}")
   end
 
   defp parse_args([csv_path]) do
